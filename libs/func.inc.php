@@ -170,3 +170,23 @@ function base_url() {
     }
     return $base_url;
 }
+
+/**
+ * helper function for requesting external service.
+ */
+function do_post($url, $data = array()) {
+    $ch=curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    return $response;
+}
+
+function do_get($url, $data = array()) {
+    $url .= '?' . http_build_query($data);
+    return file_get_contents($url);
+}
