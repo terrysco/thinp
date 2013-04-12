@@ -1,0 +1,33 @@
+<?php
+if (!defined('IN_THINP')) exit('You can not access this file directly!');
+
+/**
+ * error code definition.
+ */
+define('THINP_ERROR_MODULE_NOT_EXISTS', 101);
+define('THINP_ERROR_HANDLER_NOT_EXISTS', 102);
+define('THINP_ERROR_LIBRARY_NOT_CONFIGURED', 103);
+
+return array(
+    'app' => array(
+        'default_handler' => 'home/index'
+    ),
+    'db' => array(
+        'library'=>'mysqli',
+        'host'=>'127.0.0.1',
+        'database'=>'thinp',
+        'username'=>'root',
+        'passwd'=>'root',
+    ),
+    'redis' => array(
+        'host'=>'127.0.0.1',
+        'port'=>6379,
+        'database'=>0, 
+        'auth'=>'',
+    ),
+    'error' => array(
+        THINP_ERROR_MODULE_NOT_EXISTS =>  'we are sorry that you have missed yourself now, please enable your GPS module and give it a shot :-).',
+        THINP_ERROR_HANDLER_NOT_EXISTS => 'seems you are lost yourself...:-(',
+        THINP_ERROR_LIBRARY_NOT_CONFIGURED => 'could not load the library',
+    ),
+);
