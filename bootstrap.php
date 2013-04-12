@@ -24,7 +24,7 @@ if (ini_get('register_globals')) {
 
 function bootstrap_dispatch() {
     global $conf;
-    $act = thinp_get_query('act', $conf['app']['default_handler']);
+    $act = get_query('act', $conf['app']['default_handler']);
     $routes = explode('/', $act);
     $module = array_shift($routes);
 

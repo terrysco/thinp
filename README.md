@@ -40,3 +40,15 @@ since I've been tring the best to keep thinp simple and easy to use, I didn't im
 l('db')->get('users');
 l('db')->where('id=?', 1)->get('users');
 ```
+- HTTP GET and POST
+
+```
+get_query('username', 'default');
+get_post('username', 'default');
+```
+- Retrieve External Resource
+
+```
+do_post('http://www.xxx.com/api/service.json', array('name'=>'user', 'passwd'=>'pass));
+do_get('http://www.yyy.com/api/list.xml', array('id'=>123));
+```
