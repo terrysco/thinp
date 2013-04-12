@@ -52,3 +52,22 @@ get_post('username', 'default');
 do_post('http://www.xxx.com/api/service.json', array('name'=>'user', 'passwd'=>'pass));
 do_get('http://www.yyy.com/api/list.xml', array('id'=>123));
 ```
+- Redis Cache API
+
+```
+cache_set('username', 'terrysco', 30);
+cache_get('username', 'default');
+```
+
+note that this API is using a simple redis string structure, if you want to design a complicated structure,
+you should using the following redis library.
+
+- Redis Library
+
+documentation: https://github.com/nicolasff/phpredis
+
+```
+l('redis')->incr($name);
+l('redis')->mGet(array('key1', 'key2', 'key3'));
+...
+```
