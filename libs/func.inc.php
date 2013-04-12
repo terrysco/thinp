@@ -155,3 +155,18 @@ function cache_set($name, $value, $expired = 0) {
     else
         l('redis')->set("cache:$name", $value);
 }
+
+/**
+ * a helper function to get the base url of your apps.
+ * for example: once you want to generate a url pointing to a specific image,
+ * base_url().'image/icon.png';
+ */
+function base_url() {
+    $base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https' : 'http';
+    $base_url .= '://'. $_SERVER['HTTP_HOST'] .'/';
+
+    if ($dir = trim(dirname($_SERVER['SCRIPT_NAME']), '\,/')) {
+      $base_url .= "$dir/";
+    }
+    return $base_url;
+}
