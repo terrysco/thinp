@@ -13,6 +13,8 @@ function thinp_load_config() {
     $config = THINP_ROOT . 'conf.inc.php';
     if (file_exists($config))
         return require_once $config;
+    else 
+        exit('please check out whether you have a configuration file, if not, please copy one from the sample.');
 }
 
 /**
@@ -56,6 +58,11 @@ function l($l) {
  */
 function redis_init($conf) {
     $redis = new Redis();
+    $redis->connect($conf['host'], $conf['port']);
+    if (isset($conf['auth']) && $conf['auth'])
+        $redis->auth($conf['auth']);
+    if (isset($conf['database']) && is_numeric($conf['database']))
+        $redis->select($conf['database']);
     return $redis;
 }
 
@@ -131,4 +138,20 @@ function thinp_get_post($name, $default = null) {
 
 function thinp_get_query($name, $default = null) { 
     return isset($_GET[$name]) ? trim($_GET[$name]) : $default;
+}
+
+function cache_get($name, $default = null) {
+    $value = l('redis')->get("cache:$name");
+    return $value === false ? $default : $value;
+}
+
+/**
+ * cache a string in redis.
+ * please make sure you have to install redis and phpredis extension first.
+ */
+function cache_set($name, $value, $expired = 0) {
+    if ($expired)
+        l('redis')->setex("cache:$name", $expired, $value);
+    else
+        l('redis')->set("cache:$name", $value);
 }
