@@ -132,11 +132,11 @@ function thinp_process_handler($module, $handler, $params) {
 /**
  * a simple wrapper for retrieving http post data.
  */
-function thinp_get_post($name, $default = null) {
+function get_post($name, $default = null) {
     return isset($_POST[$name]) ? trim($_POST[$name]) : $default;
 }
 
-function thinp_get_query($name, $default = null) { 
+function get_query($name, $default = null) { 
     return isset($_GET[$name]) ? trim($_GET[$name]) : $default;
 }
 

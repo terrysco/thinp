@@ -9,6 +9,7 @@ thinp is a light-weight php framework focusing on creating simple back-end servi
 #Requirements
 - PHP Version >= 5.3
 - MySQLi
+- Redis
 
 #Installation
 retrieve the whole library and find out modules directory, now you can write your own modules there.
