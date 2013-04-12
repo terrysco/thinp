@@ -5,7 +5,7 @@ if (!defined('IN_THINP')) exit('You can not access this file directly!');
 define('THINP_LIBS', THINP_ROOT . 'libs/');
 
 // thinp modules directory
-define('THINP_MODULE', THINP_ROOT . 'module/');
+define('THINP_MODULES', THINP_ROOT . 'modules/');
 
 require(THINP_LIBS . 'func.inc.php');
 $conf = thinp_load_config();

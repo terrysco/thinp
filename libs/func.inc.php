@@ -96,7 +96,7 @@ function thinp_error($code) {
  */
 function thinp_load_module($module) {
     static $modules;
-    $module_file = THINP_MODULE . $module . '.php';
+    $module_file = THINP_MODULES . $module . '.php';
     if (isset($modules[$module]))
         return true;
     if (!file_exists($module_file))
