@@ -1,7 +1,24 @@
 #What's thinp
+thinp is a light-weight php framework focusing on creating simple back-end services for mobile apps.
+
+##Features
+- Data Format: JSON
+- Cache Component: Redis
+- Database: MySQL
+
 #Requirements
 - PHP Version >= 5.3
 - MySQLi
+
 #Installation
+retrieve the whole library and find out modules directory, now you can write your own modules there.
 
 #Configuration
+please checkout the config.inc.php file, you could set up your specific database connection credentials here.
+
+#Clarification
+since I've been tring the best to keep thinp simple and easy to use, I didn't implement quite "heavy" components, so if you need the following features, I'm sorry that thinp is not for you. Anyway, you can check out yii (also my favorite php framework). git it a shot, why not? :-)
+- Active Record
+- Full Featured of MVC
+- Come up with HTML & PHP Template
+- etc.
