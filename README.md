@@ -28,7 +28,7 @@ location /thinp {
 ```
 
 #Clarification
-since I've been tring the best to keep thinp simple and easy to use, I didn't implement quite "heavy" components, so if you need the following features, I'm sorry that thinp is not for you. Anyway, you can check out yii (also my favorite php framework). git it a shot, why not? :-)
+since I've been trying the best to keep thinp simple and easy to use, I didn't implement quite "heavy" components, so if you need the following features, I'm sorry that thinp is not for you. Anyway, you can check out yii (also my favorite php framework). git it a shot, why not? :-)
 - Active Record
 - Full Featured of MVC
 - Come up with HTML & PHP Template
