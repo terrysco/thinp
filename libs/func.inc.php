@@ -83,16 +83,11 @@ function db_init($conf) {
 function thinp_error($code) {
     global $conf;
     $errors = $conf['error'];
-    switch ($code) {
-    case THINP_ERROR_PAGE_NOT_FOUND:
-        header('HTTP/1.1 404 Not Found');
-    default:
-        break;
-    }
-    if (defined('THINP_DEBUG') && isset($errors[$code]))
-        echo $errors[$code];
+    if (isset($errors[$code]))
+        $message = $errors[$code];
     else
-        echo 'Unknown error';
+        $message = 'Unknown error';
+    echo json_encode(array('code'=>$code, 'message'=>$errors[$code]));
 }
 
 /**
@@ -138,6 +133,10 @@ function get_post($name, $default = null) {
 
 function get_query($name, $default = null) { 
     return isset($_GET[$name]) ? trim($_GET[$name]) : $default;
+}
+
+function get_input() {
+    return file_get_contents('php://input');
 }
 
 function cache_get($name, $default = null) {

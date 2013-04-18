@@ -24,11 +24,19 @@ if (ini_get('register_globals')) {
 
 function bootstrap_dispatch() {
     global $conf;
-    $act = get_query('act', $conf['app']['default_handler']);
+    $act = get_query('act', "{$conf['app']['default_module']}/{$conf['app']['default_handler']}");
     $routes = explode('/', $act);
     $module = array_shift($routes);
 
     thinp_load_module($module);
-    $handler = array_shift($routes);
+
+    if (!empty($routes)) {
+        $handler = array_shift($routes);
+        if (!empty($conf['app']['url_suffix'])) {
+            $suffix = $conf['app']['url_suffix'];
+            $handler = substr($handler, 0, strrpos($handler, $suffix)); 
+        }
+    } else
+        $handler = $conf['app']['default_handler'];
     return thinp_process_handler($module, $handler, $routes);
 }

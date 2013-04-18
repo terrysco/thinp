@@ -10,7 +10,9 @@ define('THINP_ERROR_LIBRARY_NOT_CONFIGURED', 103);
 
 return array(
     'app' => array(
-        'default_handler' => 'home/index'
+        'default_module'=>'api',
+        'default_handler'=>'index',
+        'url_suffix'=>'.html',
     ),
     'db' => array(
         'library'=>'mysqli',
