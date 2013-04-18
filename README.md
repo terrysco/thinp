@@ -16,6 +16,11 @@ retrieve the whole library and find out modules directory, now you can write you
 
 #Configuration
 please checkout the config.inc.php file, you could set up your specific database connection credentials here.
+- default module and handler
+
+- url suffix
+
+if you specify a url suffix, say ".html", then '/api/default.html' will map to function 'api_default'
 
 - niginx rewrites
 
@@ -46,6 +51,7 @@ l('db')->where('id=?', 1)->get('users');
 ```
 get_query('username', 'default');
 get_post('username', 'default');
+get_input();
 ```
 - Retrieve External Resource
 
